@@ -21,7 +21,7 @@ async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
     headers['x-passcode'] = getPasscode()
   }
 
-  const res = await fetch(`${API_BASE}${path}`, { ...options, headers })
+  const res = await fetch(`${API_BASE}${path}`, { ...options, headers, cache: 'no-store' })
   if (res.status === 204) return undefined as T
   const json = await res.json()
   if (!res.ok) throw new Error(json.detail ?? 'Request failed')
