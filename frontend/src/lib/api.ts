@@ -1,4 +1,4 @@
-import type { Asset, Milestone, WaterfallResult } from '@/types'
+import type { Asset, Milestone, Snapshot, WaterfallResult } from '@/types'
 
 const API_BASE =
   process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000/api/v1'
@@ -65,6 +65,14 @@ export const updateMilestone = (
 
 export const deleteMilestone = (id: string) =>
   apiFetch<void>(`/milestones/${id}`, { method: 'DELETE' })
+
+// ── Snapshots ─────────────────────────────────────────────────────────────────
+
+export const getSnapshots = (limit = 90) =>
+  apiFetch<Snapshot[]>(`/snapshots/?limit=${limit}`)
+
+export const createSnapshot = () =>
+  apiFetch<Snapshot>('/snapshots/', { method: 'POST' })
 
 // ── Waterfall ─────────────────────────────────────────────────────────────────
 
