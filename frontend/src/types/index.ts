@@ -48,6 +48,12 @@ export interface MilestoneFunding {
   stress_breaks: boolean
 }
 
+export interface Snapshot {
+  id: string
+  total_net_worth: number
+  timestamp: string // ISO datetime
+}
+
 export interface WaterfallResult {
   milestones: MilestoneFunding[]
   total_pool: number
