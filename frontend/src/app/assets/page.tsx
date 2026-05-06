@@ -1,6 +1,6 @@
 import { AlertTriangle } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import AssetTable from '@/components/AssetTable'
+import AssetsView from '@/components/AssetsView'
 import { getAssets } from '@/lib/api'
 
 export default async function AssetsPage() {
@@ -23,7 +23,7 @@ export default async function AssetsPage() {
         </Alert>
       )}
 
-      <AssetTable initial={assets ?? []} />
+      <AssetsView initial={assets ?? []} />
     </div>
   )
 }
