@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, type Dispatch, type SetStateAction } from 'react'
 import { Pencil, Trash2, Plus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -35,11 +35,11 @@ const EMPTY_FORM = {
 }
 
 interface Props {
-  initial: Asset[]
+  assets: Asset[]
+  setAssets: Dispatch<SetStateAction<Asset[]>>
 }
 
-export default function AssetTable({ initial }: Props) {
-  const [assets, setAssets] = useState<Asset[]>(initial)
+export default function AssetTable({ assets, setAssets }: Props) {
   const [open, setOpen] = useState(false)
   const [editing, setEditing] = useState<Asset | null>(null)
   const [form, setForm] = useState(EMPTY_FORM)
